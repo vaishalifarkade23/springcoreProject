@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <!--  Example-1 of  Dependency Injection without Autowiring  -->
+<!--   <bean id="add2" class="com.autowire.Address">
+ <property name="street" value="fc road"></property>
+ <property name="city" value="pune"></property>
+ <property name="state" value="Maharashtra"></property>
+ <property name="country" value="India"></property>
+ </bean>
+ 
+ <bean id="add1" class="com.autowire.Address">
+ <property name="street" value="ring road"></property>
+ <property name="city" value="Nagpur"></property>
+ <property name="state" value="Maharashtra"></property>
+ <property name="country" value="India"></property>
+ </bean>
+ 
+<bean id="student" class="com.autowire.Student">
+<property name="id" value="88"></property>
+<property name="name" value="shree"></property>
+<property name="address1" ref ="add1"></property>
+<property name="address2" ref="add2"></property>
+</bean> -->
+
+<!--  -->
+  <bean id="address1" class="com.autowire.Address">
+ <property name="street" value="fc road"></property>
+ <property name="city" value="pune"></property>
+ <property name="state" value="Maharashtra"></property>
+ <property name="country" value="India"></property>
+ </bean>
+ 
+ 
+ <bean id="address2" class="com.autowire.Address">
+ <property name="street" value="ring road"></property>
+ <property name="city" value="Nagpur"></property>
+ <property name="state" value="Maharashtra"></property>
+ <property name="country" value="India"></property>
+ </bean>
+ 
+<bean id="student" class="com.autowire.Student" autowire="byName">
+<property name="id" value="88"></property>
+<property name="name" value="shree"></property>
+
+</bean>
+
+</beans>

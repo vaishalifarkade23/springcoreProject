@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="triangle" class="com.test.Traingle">
+</bean>
+
+<!--Setter Injection using primitive and string based values-->
+
+<bean id="student" class="com.si.primitive.Student">
+<property name="id" value="1"></property>
+<property name="name" value="prachi"></property>
+<property name="salary" value="25000f"></property>
+</bean>
+
+
+<!-- Setter Injection with dependent object -->
+
+<bean id="address" class="com.si.dpobject.Address">
+<property name="street" value="Walkers Street"></property>
+<property name="city" value="Nagpur"></property>
+<property name="state" value="Maharastra"></property>
+<property name="country" value="India"></property>
+</bean>
+
+
+<bean id="studentmodel" class="com.si.dpobject.StudentModel">
+<property name="id" value="100"></property>
+<property name="name" value="vivek raut"></property>
+<property name="email" value="vaishalifarkade143@gmail.com"></property>
+<property name="address" ref="address"></property>
+</bean>
+
+<!--Dependency Injection with Colletion Framework with String Values  -->
+
+<bean id="cstudent" class="com.di.collectionfrmwkstringvalue.Student1">
+<property name="id" value="101"></property>
+<property name="name" value="Shree"></property>
+<property name="address">
+	<list>
+			<value>231,ChitnisNagar Nagpur</value>
+	</list>
+</property>
+</bean>
+
+<!--Dependency Injection with Colletion Framework with String Values  -->
+
+  <bean id="student1" class="com.collectionstring.Student">
+  <property name="id" value="1"></property>
+  <property name="name" value="Rohan"></property>
+  <property name="address">
+   <list>
+    <value>44,New Amar Nagar Nagpur</value>
+    <value>09,Nandanwan Nagpur</value>
+   </list>
+  </property>
+ </bean>
+ 
+ 
+  <!-- Setter Injection with Colletion (List of Object)-->
+ 
+ <bean id="address1" class="com.listofobjectcolletion.Address">
+ <property name="street" value="FcRoad"></property>
+<property name="city" value="Mumbai"></property>
+<property name="state" value="Maharastra"></property>
+<property name="country" value="India"></property>
+ </bean>
+ 
+ <bean id="address2" class="com.listofobjectcolletion.Address">
+ <property name="street" value="Pashan Road"></property>
+<property name="city" value="Pune"></property>
+<property name="state" value="Maharastra"></property>
+<property name="country" value="India"></property>
+ </bean>
+ 
+
+<bean id="objcollection" class="com.listofobjectcolletion.Student">
+<property name="id" value="55"></property>
+<property name="name" value="pinky"></property>
+<property name="address">
+<list>
+<ref bean="address1"></ref>
+<ref bean="address2"></ref>
+</list>
+</property>
+</bean>
+
+<!-- Setter Injection with Map -->
+
+<bean id="que" class="com.si.map.Quetion">
+<property name="id" value="11"></property>
+<property name="name" value="vicky"></property>
+<property name="answers" >
+<map>
+<entry key="javva" value="hs"></entry>
+<entry key="php" value="hs1"></entry>
+</map>
+</property>
+
+
+</bean>
+</beans>

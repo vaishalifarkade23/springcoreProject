@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <!--  Using primitive datatypes -->
+<!-- if datatype is different then we need to define type=""  in <constructor-arg>  if same datatype then no need to define -->
+
+<bean id="student" class="com.si.constructorinjection.Student" >
+<constructor-arg type="int" value="1001"></constructor-arg>
+<constructor-arg value="nikki"></constructor-arg>
+<constructor-arg value="80000f"></constructor-arg>
+</bean>
+
+<!-- Dependency Injection using constructor with dependent object -->
+
+<bean id="address" class="com.di.usingciwithdependentobject.Address">
+<constructor-arg value=" 123,Walkers Street"></constructor-arg>
+<constructor-arg value="Nagpur"></constructor-arg>
+<constructor-arg value="Maharashtra"></constructor-arg>
+<constructor-arg value="India"></constructor-arg>
+</bean>
+
+<bean id="objstudent" class="com.di.usingciwithdependentobject.Student">
+<constructor-arg value="88" type="int"></constructor-arg>
+<constructor-arg value="Pranay"></constructor-arg>
+<constructor-arg ref="address"></constructor-arg>
+</bean>
+
+<!-- Dependency injection using collection as string  -->
+<bean id="colstudent" class="com.di.cicollectionas_string.Student">
+<constructor-arg value="74" type="int"></constructor-arg>
+<constructor-arg value="Vaibhav"></constructor-arg>
+<constructor-arg>
+<list>
+	<value>05,Nandanwan,Nagpur</value>
+	<value>08,chitnis nagar,nagpur</value>
+	<value>09,bhande plot, nagpur</value>
+</list>
+</constructor-arg>
+</bean>
+
+<!--  Dependency injection using collection as object -->
+
+<bean id="address1" class="com.cicollection_object.Address">
+<constructor-arg value="08,fc Road"></constructor-arg>
+<constructor-arg value="Mumbai"></constructor-arg>
+<constructor-arg value="Maharshtra"></constructor-arg>
+<constructor-arg value="India"></constructor-arg>
+</bean>
+
+<bean id="address2" class="com.cicollection_object.Address">
+<constructor-arg value="11,ring road"></constructor-arg>
+<constructor-arg value="Nagpur"></constructor-arg>
+<constructor-arg value="Maharashtra"></constructor-arg>
+<constructor-arg value="India"></constructor-arg>
+</bean>
+
+<bean id="colobjstudent" class="com.cicollection_object.Student">
+<constructor-arg value="8" type="int"></constructor-arg>
+<constructor-arg value="kiyara"></constructor-arg>
+<constructor-arg>
+<list>
+<ref bean="address1"></ref>
+<ref bean="address2"></ref>
+</list>
+</constructor-arg>
+</bean>
+
+<!-- map -->
+
+<bean id="question" class="com.ci.map.Question">
+<constructor-arg value="99" type="int"></constructor-arg>
+<constructor-arg value="java"></constructor-arg>
+<constructor-arg name="answers">
+<map>
+<entry key="php" value="prachi raut"></entry>
+<entry key="java" value="vivek raut"></entry>
+</map>
+</constructor-arg>
+</bean>
+
+<!-- Constructor Injection with Non-String Map (having dependent Object)  -->
+
+
+ </beans>
